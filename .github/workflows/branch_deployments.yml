@@ -10,7 +10,7 @@ concurrency:
 env:
   DAGSTER_CLOUD_URL: "http://certify.dagster.cloud"
   DAGSTER_CLOUD_API_TOKEN: ${{ secrets.DAGSTER_CLOUD_API_TOKEN }}
-  ENABLE_FAST_DEPLOYS: 'true'
+  # ENABLE_FAST_DEPLOYS: 'true'
   PYTHON_VERSION: '3.8'
   DAGSTER_CLOUD_FILE: 'dagster_cloud.yaml'
 
@@ -69,8 +69,8 @@ jobs:
         with:
           dagster_cloud_api_token: ${{ secrets.DAGSTER_CLOUD_API_TOKEN }}
           location: ${{ toJson(matrix.location) }}
-          # base_image: "python:${{ env.PYTHON_VERSION }}-slim"
-          base_image: "debian:bullseye-slim"
+          base_image: "python:${{ env.PYTHON_VERSION }}-slim"
+          # base_image: "debian:bullseye-slim"
           # Uncomment to pass through Github Action secrets as a JSON string of key-value pairs
           # env_vars: ${{ toJson(secrets) }}
           organization_id: ${{ secrets.ORGANIZATION_ID }}
