@@ -1,0 +1,4 @@
+locations:
+- code_source:
+    package_name: tutorial
+  location_name: first_project
