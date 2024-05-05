@@ -12,6 +12,7 @@ setup(
         "matplotlib",
         "pandas",
         "requests",
+        "selenium".
     ],
     extras_require={"dev": ["dagster-webserver", "pytest"]},
 )
