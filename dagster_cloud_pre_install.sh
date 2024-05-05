@@ -1,1 +1,1 @@
-sudo apt install chromium
+apt install chromium
