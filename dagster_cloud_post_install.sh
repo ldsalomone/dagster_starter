@@ -5,5 +5,6 @@ apt-get install -y google-chrome-stable
 
 # install chromedriver
 apt-get install -yqq unzip
-wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
-unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
+wget -O /tmp/chromedriver.zip https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/`curl -sS https://googlechromelabs.github.io/chrome-for-testing/LATEST_RELEASE_STABLE`/linux64/chromedriver-linux64.zip
+unzip /tmp/chromedriver.zip chromedriver-linux64/chromedriver -d /tmp
+cp /tmp/chromedriver-linux64/chromedriver /usr/local/bin/
