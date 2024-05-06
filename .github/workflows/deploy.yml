@@ -73,7 +73,7 @@ jobs:
           dagster_cloud_api_token: ${{ secrets.DAGSTER_CLOUD_API_TOKEN }}
           location: ${{ toJson(matrix.location) }}
           # base_image: "python:${{ env.PYTHON_VERSION }}-slim"
-          base_image: "debian:bullseye-slim"
+          base_image: "python:3.9-buster"
           # Uncomment to pass through Github Action secrets as a JSON string of key-value pairs
           # env_vars: ${{ toJson(secrets) }}
           organization_id: ${{ secrets.ORGANIZATION_ID }}
