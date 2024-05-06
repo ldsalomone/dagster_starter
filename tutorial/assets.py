@@ -163,7 +163,7 @@ def run_selenium() -> None:
 
     all_data = []
 
-    for letter in "AB":
+    for letter in "ABCDEGFHIJKLMNOPQRSTUVWXYZ":
         print(f"Scraping for {letter}...")
         last_name_box = driver.find_element(
             By.XPATH, '//*[@id="ContentPlaceHolder2_TLname"]'
