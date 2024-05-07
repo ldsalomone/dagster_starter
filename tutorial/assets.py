@@ -155,7 +155,7 @@ def run_playwright() -> None:
         #  browser = pw.chromium.connect_over_cdp(
         #      "wss://production-sfo.browserless.io?token=Q24V0Yq4e6ifri9f9b1b075944bcdad3f742ad9f8c"
         #  )
-        browser = pw.chromium.launch(headless=True)
+        browser = pw.chromium.launch(headless=True, executable_path="/usr/local/bin/chromedriver")
         context = browser.new_context()
         page = context.new_page()
         page.goto("https://oop.ky.gov/")
