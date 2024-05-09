@@ -1,6 +1,7 @@
 import json
 import os
 import time
+from typing import List
 
 import pandas as pd  # Add new imports to the top of `assets.py`
 import requests
@@ -146,7 +147,7 @@ def get_table_data_pw(page):
     return table_data
 
 @asset
-def run_playwright() -> None:
+def run_playwright() -> List:
     my_logger = get_dagster_logger()
     import playwright.sync_api as p
 
