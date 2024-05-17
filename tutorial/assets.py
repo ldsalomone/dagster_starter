@@ -19,11 +19,10 @@ from webdriver_manager.core.os_manager import ChromeType
 
 @asset
 def al_scraper() -> None:
-    import certipy
+    my_logger = get_dagster_logger()
+    from certipy import scraper
 
-    print(dir(certipy))
-
-    al_scraper = certipy.scraper.AL()
+    al_scraper = scraper.AL()
     df = al_scraper.search_by_type_and_name("PC", "", "J")
     my_logger.info(len(df))
     my_logger.info(df.iloc[0])
