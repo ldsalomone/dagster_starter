@@ -15,7 +15,7 @@ setup(
         "selenium",
         "webdriver_manager",
         "pytest-playwright",
-        "certipy"
+        "certipy-private"
     ],
     extras_require={"dev": ["dagster-webserver", "pytest"]},
 )
