@@ -19,7 +19,7 @@ from webdriver_manager.core.os_manager import ChromeType
 
 @asset
 def al_scraper() -> None:
-    from certipy import scraper
+    import certipy.scraper as scraper
 
     al_scraper = scraper.AL()
     df = al_scraper.search_by_type_and_name("PC", "", "J")
