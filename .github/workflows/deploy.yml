@@ -30,6 +30,27 @@ jobs:
         id: prerun
         uses: dagster-io/dagster-cloud-action/actions/utils/prerun@v0.1
 
+      - name: Checkout internal repository
+        uses: actions/checkout@v3
+        with:
+          repository: CertifyOS/certipy
+          path: deps/certipy
+          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      
+      - name: Build a wheel
+        run: >
+          cd deps/certipy &&
+          python setup.py bdist_wheel &&
+          mkdir -p $GITHUB_WORKSPACE/deps &&
+          cp dist/*whl $GITHUB_WORKSPACE/deps
+          
+      - name: Configure dependency resolution to use the wheel built above
+        run: >
+          echo "[global]" > $GITHUB_WORKSPACE/deps/pip.conf &&
+          echo "find-links = " >> $GITHUB_WORKSPACE/deps/pip.conf &&
+          echo "    file://$GITHUB_WORKSPACE/deps/" >> $GITHUB_WORKSPACE/deps/pip.conf &&
+          echo "PIP_CONFIG_FILE=$GITHUB_WORKSPACE/deps/pip.conf" > $GITHUB_ENV
+
       - name: Launch Docker Deploy
         if: steps.prerun.outputs.result == 'docker-deploy'
         id: parse-workspace
